@@ -53,7 +53,15 @@ public class Cars {
 		Assert.assertEquals(actualZipCode, expectedZipCode);
 		
 	}
-	
+	@Test(priority=3)
+	public void titleOfSearchPageByZipCode1() {
+		driver.findElement(By.id("dealFinderZipCPOId")).sendKeys("75006");
+		driver.findElement(By.id("dealFinderFormCPO_0")).click();
+		String actualZipCode = driver.findElement(By.id("newSearchHeaderForm_UsedCar_zip")).getAttribute("value");
+		String expectedZipCode="75006";
+		Assert.assertEquals(actualZipCode, expectedZipCode);
+		
+	}
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();		
